@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -289,6 +290,25 @@
             opacity: 0.4;
         }
 
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 100px 20px;
+            color: #00D9FF;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             header h1 {
@@ -328,201 +348,91 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>RELICA</h1>
-            <p>Development Roadmap</p>
-        </header>
-
-        <div class="version-info">
-            <div>
-                <strong>Last Updated:</strong> November 30, 2025
-            </div>
-            <div>
-                <a href="https://github.com/corpus-relica">📜 View GitHub</a>
-            </div>
-        </div>
-
-        <div class="timeline">
-            <div class="quarter">
-                <div class="quarter-header">
-                    <h2>Research & Foundation</h2>
-                    <p class="date">2008 - 2023</p>
-                </div>
-                <div class="items">
-                    <div class="item">
-                        <p>Identified fundamental limitations in conventional data modeling approaches. Extensive study of ontological frameworks leading to grounding of our approach in established semantic standards. Developed theoretical framework for unified representation of objects, aspects, states, and causal relationships.</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quarter">
-                <div class="quarter-header">
-                    <h2>Core Platform</h2>
-                    <p class="date">2023 - 2024</p>
-                </div>
-                <div class="items">
-                    <div class="item">
-                        <h3>Fact store with graph-based persistence</h3>
-                        <p>PostgreSQL based semantic triple storage optimized for ontological operations and traversal</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Layered service architecture</h3>
-                        <p>Fact access, semantic mapping, API gateway, session management</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Declarative query system</h3>
-                        <p>Datalog-inspired pull specifications for flexible graph traversal and object materialization</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Semantic caching layer</h3>
-                        <p>Performance optimization for frequently accessed ontological structures</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Persistent subgraph environments</h3>
-                        <p>Isolated workspaces for ontology development, testing, and application contexts</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Administrative interface</h3>
-                        <p>Ontological development and model browsing</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>API stabilization and documentation</h3>
-                        <p>Consistent endpoint design and comprehensive developer reference</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quarter">
-                <div class="quarter-header">
-                    <h2>Q1-Q2 2025</h2>
-                    <p class="date">January - June 2025</p>
-                </div>
-                <div class="items">
-                    <div class="item">
-                        <h3>Object-Semantic Mapper (OSM)</h3>
-                        <p>Core mechanism for bidirectional semantic transformation between application objects and fact sub-graphs</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Dual frontend/backend SDK</h3>
-                        <p>Shared type definitions across client and server with unified specification format</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Temporal modeling support</h3>
-                        <p>State-based and fact-validity approaches for tracking change over time</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quarter">
-                <div class="quarter-header">
-                    <h2>Q3-Q4 2025</h2>
-                    <p class="date">July - December 2025</p>
-                </div>
-                <div class="items">
-                    <div class="item">
-                        <h3>Occurrence modeling with causal chains</h3>
-                        <p>Representing events, activities, and their causal relationships within the semantic model</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Aspect classification hierarchies</h3>
-                        <p>State transition patterns and systematic aspect management across object lifecycles</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Meta-spatio-temporal modeling framework</h3>
-                        <p>SDK support for objects, aspects, states, occurrences, and causality as first-class constructs</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                    <div class="item">
-                        <h3>Validation with non-trivial modeling scenarios</h3>
-                        <p>Real-world complexity testing including spatial positioning, temporal sequences, and multi-entity relationships</p>
-                        <span class="status done">✓ Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quarter">
-                <div class="quarter-header">
-                    <h2>Platform Hardening</h2>
-                    <p class="date">Q1-Q2 2026</p>
-                </div>
-                <div class="items">
-                    <div class="item">
-                        <h3>Client SDK ergonomics improvements</h3>
-                        <p>Streamlined developer experience with clearer APIs and better error handling</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                    <div class="item">
-                        <h3>Scratch ontology environments</h3>
-                        <p>Client-side development and experimentation without affecting production models</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                    <div class="item">
-                        <h3>Additional SDK language support</h3>
-                        <p>Beyond TypeScript to broaden platform accessibility (e.g. Python)</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                    <div class="item">
-                        <h3>Administrative interface enhancements</h3>
-                        <p>Improved model browsing, ontology workflows, visual development tools, user management, and access control</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                    <div class="item">
-                        <h3>Query optimization and batch operations</h3>
-                        <p>Performance improvements for large-scale ontological operations</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quarter">
-                <div class="quarter-header">
-                    <h2>Q3 2026</h2>
-                    <p class="date">July - September 2026</p>
-                </div>
-                <div class="items">
-                    <div class="item">
-                        <h3>Developer preview release</h3>
-                        <p>Public access to platform with documentation, examples, and community support channels</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quarter">
-                <div class="quarter-header">
-                    <h2>Future Roadmap</h2>
-                </div>
-                <div class="items">
-                    <div class="item">
-                        <h3>Hosted platform</h3>
-                        <p>Managed infrastructure for teams and organizations</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                    <div class="item">
-                        <h3>Reference applications</h3>
-                        <p>Demonstration applications showcasing platform development patterns and capabilities</p>
-                        <span class="status planned">📋 Planned</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>This roadmap is a living document and subject to change based on user feedback and development priorities.</p>
-        </footer>
+        <div id="app" class="loading">Loading roadmap</div>
     </div>
+
+    <script>
+        const statusLabels = {
+            done: '✓ Completed',
+            'in-progress': '⚡ In Progress',
+            planned: '📋 Planned'
+        };
+
+        function renderRoadmap(data) {
+            const app = document.getElementById('app');
+
+            let html = `
+                <header>
+                    <h1>${data.title}</h1>
+                    <p>${data.subtitle}</p>
+                </header>
+
+                <div class="version-info">
+                    <div>
+                        <strong>Last Updated:</strong> ${data.last_updated}
+                    </div>
+                    <div>
+                        <a href="${data.github_url}">📜 View GitHub</a>
+                    </div>
+                </div>
+
+                <div class="timeline">
+            `;
+
+            for (const quarter of data.quarters) {
+                html += `
+                    <div class="quarter">
+                        <div class="quarter-header">
+                            <h2>${quarter.name}</h2>
+                            ${quarter.date ? `<p class="date">${quarter.date}</p>` : ''}
+                        </div>
+                        <div class="items">
+                `;
+
+                for (const item of quarter.items) {
+                    const statusClass = item.status.replace('_', '-');
+                    html += `
+                        <div class="item">
+                            ${item.title ? `<h3>${item.title}</h3>` : ''}
+                            <p>${item.description}</p>
+                            <span class="status ${statusClass}">${statusLabels[statusClass] || item.status}</span>
+                        </div>
+                    `;
+                }
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += `
+                </div>
+
+                <footer>
+                    <p>This roadmap is a living document and subject to change based on user feedback and development priorities.</p>
+                </footer>
+            `;
+
+            app.className = '';
+            app.innerHTML = html;
+        }
+
+        // Fetch and render
+        fetch('roadmap.yaml')
+            .then(response => response.text())
+            .then(yaml => {
+                const data = jsyaml.load(yaml);
+                renderRoadmap(data);
+            })
+            .catch(error => {
+                document.getElementById('app').innerHTML = `
+                    <div style="color: #ff6b6b; text-align: center; padding: 100px 20px;">
+                        <h2>Failed to load roadmap</h2>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            });
+    </script>
 </body>
 </html>

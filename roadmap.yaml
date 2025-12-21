@@ -1,0 +1,120 @@
+title: RELICA
+subtitle: Development Roadmap
+last_updated: November 30, 2025
+github_url: https://github.com/corpus-relica
+
+quarters:
+  - name: Research & Foundation
+    date: 2008 - 2023
+    items:
+      - description: >
+          Identified fundamental limitations in conventional data modeling approaches.
+          Extensive study of ontological frameworks leading to grounding of our approach
+          in established semantic standards. Developed theoretical framework for unified
+          representation of objects, aspects, states, and causal relationships.
+        status: done
+
+  - name: Core Platform
+    date: 2023 - 2024
+    items:
+      - title: Fact store with graph-based persistence
+        description: PostgreSQL based semantic triple storage optimized for ontological operations and traversal
+        status: done
+
+      - title: Layered service architecture
+        description: Fact access, semantic mapping, API gateway, session management
+        status: done
+
+      - title: Declarative query system
+        description: Datalog-inspired pull specifications for flexible graph traversal and object materialization
+        status: done
+
+      - title: Semantic caching layer
+        description: Performance optimization for frequently accessed ontological structures
+        status: done
+
+      - title: Persistent subgraph environments
+        description: Isolated workspaces for ontology development, testing, and application contexts
+        status: done
+
+      - title: Administrative interface
+        description: Ontological development and model browsing
+        status: done
+
+      - title: API stabilization and documentation
+        description: Consistent endpoint design and comprehensive developer reference
+        status: done
+
+  - name: Q1-Q2 2025
+    date: January - June 2025
+    items:
+      - title: Object-Semantic Mapper (OSM)
+        description: Core mechanism for bidirectional semantic transformation between application objects and fact sub-graphs
+        status: done
+
+      - title: Dual frontend/backend SDK
+        description: Shared type definitions across client and server with unified specification format
+        status: done
+
+      - title: Temporal modeling support
+        description: State-based and fact-validity approaches for tracking change over time
+        status: done
+
+  - name: Q3-Q4 2025
+    date: July - December 2025
+    items:
+      - title: Occurrence modeling with causal chains
+        description: Representing events, activities, and their causal relationships within the semantic model
+        status: done
+
+      - title: Aspect classification hierarchies
+        description: State transition patterns and systematic aspect management across object lifecycles
+        status: done
+
+      - title: Meta-spatio-temporal modeling framework
+        description: SDK support for objects, aspects, states, occurrences, and causality as first-class constructs
+        status: done
+
+      - title: Validation with non-trivial modeling scenarios
+        description: Real-world complexity testing including spatial positioning, temporal sequences, and multi-entity relationships
+        status: done
+
+  - name: Platform Hardening
+    date: Q1-Q2 2026
+    items:
+      - title: Client SDK ergonomics improvements
+        description: Streamlined developer experience with clearer APIs and better error handling
+        status: planned
+
+      - title: Scratch ontology environments
+        description: Client-side development and experimentation without affecting production models
+        status: planned
+
+      - title: Additional SDK language support
+        description: Beyond TypeScript to broaden platform accessibility (e.g. Python)
+        status: planned
+
+      - title: Administrative interface enhancements
+        description: Improved model browsing, ontology workflows, visual development tools, user management, and access control
+        status: planned
+
+      - title: Query optimization and batch operations
+        description: Performance improvements for large-scale ontological operations
+        status: planned
+
+  - name: Q3 2026
+    date: July - September 2026
+    items:
+      - title: Developer preview release
+        description: Public access to platform with documentation, examples, and community support channels
+        status: planned
+
+  - name: Future Roadmap
+    items:
+      - title: Hosted platform
+        description: Managed infrastructure for teams and organizations
+        status: planned
+
+      - title: Reference applications
+        description: Demonstration applications showcasing platform development patterns and capabilities
+        status: planned
