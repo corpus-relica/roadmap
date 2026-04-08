@@ -8,19 +8,19 @@ quarters:
     items:
       - description: >
           Identified fundamental limitations in conventional data modeling.
-          Extensive study of ontological frameworks leading to grounding in
-          Gellish/ISO 15926 lineage. Developed theoretical framework for unified
-          representation of objects, aspects, states, and causal relationships.
+          Grounded approach in Gellish/ISO 15926 industrial ontology lineage.
+          Developed theoretical framework for unified representation of objects,
+          aspects, states, and causal relationships as first-class constructs.
         status: done
 
   - name: Core Platform
     date: 2023 - 2024
     items:
-      - title: Fact store with graph-based persistence
-        description: PostgreSQL-based semantic triple storage optimized for ontological operations and traversal
+      - title: Semantic fact store
+        description: PostgreSQL-based semantic triple storage optimized for ontological operations and graph traversal
         status: done
       - title: Layered service architecture
-        description: Fact access (Archivist), semantic mapping (Clarity), API gateway (Portal), session management (Aperture), authentication (Shutter)
+        description: Archivist (fact access), Clarity (semantic mapping), Portal (API gateway), Aperture (workspace isolation), Shutter (authentication)
         status: done
       - title: Declarative query system
         description: Datalog-inspired pull specifications for flexible graph traversal and object materialization
@@ -32,100 +32,100 @@ quarters:
         description: Isolated workspaces for ontology development, testing, and application contexts
         status: done
       - title: Administrative interface
-        description: Ontological development and model browsing
-        status: done
-      - title: API stabilization
-        description: Consistent endpoint design and comprehensive developer reference
+        description: Visual ontological development and model browsing
         status: done
 
   - name: H1 2025
     date: January - June 2025
     items:
       - title: Object-Semantic Mapper (OSM)
-        description: Bidirectional semantic transformation between application objects and fact subgraphs
+        description: Bidirectional semantic transformation between application objects and Gellish fact subgraphs
         status: done
       - title: Dual frontend/backend SDK
-        description: Shared type definitions across client and server with unified specification format
+        description: Shared type definitions across client and server with unified BST specification format
         status: done
       - title: Temporal modeling support
-        description: State-based and fact-validity approaches for tracking change over time
+        description: State-based and fact-validity approaches for tracking change over time with dual valid/system time
         status: done
 
   - name: H2 2025
     date: July - December 2025
     items:
       - title: Metaspatiotemporal type framework
-        description: Type scaffold for objects, aspects, states, occurrences, and causality as first-class constructs. Instance-level occurrence-causal engine is subsequent work.
+        description: Type scaffold for objects, aspects, states, occurrences, and causality as first-class constructs. Foundation for occurrence-causal instance engine.
         status: done
       - title: Aspect classification hierarchies
         description: State transition patterns and systematic aspect management across object lifecycles
         status: done
       - title: Domain validation
-        description: Non-trivial modeling scenarios including spatiotemporal sequences and multi-entity causal relationships
+        description: Non-trivial modeling scenarios including spatiotemporal sequences, multi-entity causal relationships, and legal domain test cases
         status: done
 
   - name: Q1 2026
     date: January - April 2026
     items:
       - title: Reflex component
-        description: Reactive semantic cursor enabling programmatic graph navigation and knowledge modelling operations
+        description: Reactive semantic cursor enabling programmatic graph navigation and knowledge modeling operations within Systema Relica
         status: done
       - title: Conversational graph navigation
-        description: SCION hierarchical state machine + Reflex cursor powering bidirectional natural language interface over the semantic model
+        description: SCION hierarchical state machine + Reflex cursor — bidirectional natural language read/write interface over the semantic model
         status: done
       - title: Graph-native method dispatch runtime
-        description: Taxonomic hierarchy drives read/write operations polymorphically. The system reads and executes its own operational logic from the semantic graph.
-        status: done
-      - title: SightCone prototype deployed
-        description: Working application over the platform — people, places, events, conversational read/write, multiple view facets
+        description: Taxonomic hierarchy drives read/write operations polymorphically. Method logic resolved and executed from the semantic graph itself.
         status: done
       - title: Collection-based multi-tenancy
         description: Production-ready workspace isolation across users and environments
         status: done
       - title: Provisional patent filed
-        description: Core semantic transformation methodology protected
+        description: Core semantic transformation methodology
         status: done
 
   - name: Q2-Q3 2026
     date: April - September 2026
     items:
       - title: Occurrence-causal instance engine
-        description: Live propagation of state transitions from occurrences. The delta between type scaffold and working runtime.
+        description: Live propagation of state transitions from occurrences. Runtime implementation of the metaspatiotemporal type framework — objects change state as a result of modeled events.
         status: in-progress
       - title: Multi-hop graph retrieval and reasoning
-        description: Traversal and inference across relationship chains for semantic queries
+        description: Traversal and inference across relationship chains enabling semantic queries that span multiple entity types and relationship depths
         status: in-progress
       - title: SightCone alpha
-        description: Complete metaspatiotemporal model in product. Early alpha cohort. First real user feedback.
+        description: First application fully expressing the occurrence-causal model. Personal semantic model of people, places, objects, events, and state changes over time.
         status: planned
       - title: Platform SDK ergonomics
-        description: Streamlined developer experience, clearer APIs, better error handling
+        description: Streamlined developer experience, cleaner APIs, improved error handling and type safety
         status: planned
-      - title: Principal UX designer hired
-        description: Makes SightCone legible to users who aren't the founder
+      - title: Scratch ontology environments
+        description: Client-side development and experimentation without affecting production models
         status: planned
 
   - name: Q4 2026
     date: October - December 2026
     items:
       - title: SightCone public beta
-        description: Consumer/prosumer subscription. Full flow system. Calendar integration. Revenue model validated.
+        description: Consumer application validating the semantic life OS thesis. Subscription model. Flow layer. External integrations.
         status: planned
       - title: Developer preview release
-        description: Public platform access with documentation, examples, and community support
+        description: Public platform access with documentation, examples, and community support channels
         status: planned
-      - title: Seed round preparation
-        description: PMF signal established. Path to $1M ARR mapped.
+      - title: Python SDK
+        description: Broadening platform accessibility beyond TypeScript
+        status: planned
+      - title: Query optimization and batch operations
+        description: Performance improvements for large-scale ontological operations
         status: planned
 
   - name: Future
     items:
       - title: Relica open standard
-        description: Towards Gellish/Relica adoption as open semantic modeling standard
+        description: Towards Gellish/Relica adoption as an open semantic modeling standard. Community-driven ontology development and federation.
         status: planned
       - title: Hosted platform
-        description: Managed infrastructure for teams and organizations
+        description: Managed infrastructure for teams and organizations building cognitive applications
         status: planned
       - title: Developer ecosystem
-        description: SDK marketplace, third-party applications, community ontologies
+        description: SDK marketplace, reference applications, community ontologies, third-party integrations
+        status: planned
+      - title: Procedural narrative generation
+        description: Full four-layer semantic stack enabling generative narrative over modeled reality — physical events, documented perspectives, interpretive frameworks, causal arcs.
         status: planned
