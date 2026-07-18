@@ -4,55 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RELICA Roadmap</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230A0E12'/><text x='8' y='12' font-size='11' text-anchor='middle' fill='%2300D9FF' font-family='monospace'>R</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <style>
+        @font-face {
+            font-family: 'Departure Mono';
+            src: url('DepartureMono-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #0A0E12;
+            --surface: #1A1F26;
+            --line: #2D3748;
+            --ink: #F5F5F5;
+            --cyan: #00D9FF;
+            --amber: #FFB800;
+            --green: #5FD35F;
+        }
+
         html {
             overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.7;
-            color: #F5F5F5;
-            background: #0A0E12;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.55;
+            color: var(--ink);
+            background: var(--bg);
             overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0A0E12 0%, #1A1F26 100%);
-            color: #F5F5F5;
-            padding: 80px 20px;
-            text-align: center;
-            margin-bottom: 60px;
-            border-radius: 0;
-            border-bottom: 1px solid #2D3748;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
+        /* scanlines — same whisper as the main site */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             inset: 0;
             background: repeating-linear-gradient(
                 0deg,
@@ -61,241 +58,216 @@
                 rgba(0, 217, 255, 0.03) 2px,
                 rgba(0, 217, 255, 0.03) 4px
             );
-            pointer-events: none;
             opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 24px 40px;
+        }
+
+        /* ── masthead: one slim row, not a hero ─────────────────── */
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 10px 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--line);
+            position: relative;
         }
 
         header::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #00D9FF, transparent);
-            opacity: 0.4;
-        }
-
-        header h1 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 4em;
-            margin-bottom: 15px;
-            color: #00D9FF;
-            text-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
-            letter-spacing: -0.02em;
-            position: relative;
-            z-index: 1;
-        }
-
-        header p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.3em;
-            opacity: 0.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        .version-info {
-            background: #1A1F26;
-            padding: 20px 30px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            border: 1px solid #2D3748;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9em;
-        }
-
-        .version-info a {
-            color: #00D9FF;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .version-info a:hover {
-            color: #FFB800;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 50px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #00D9FF 0%, #2D3748 100%);
-        }
-
-        .quarter {
-            margin-bottom: 60px;
-        }
-
-        .quarter-header {
-            background: #1A1F26;
-            padding: 25px 35px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border: 1px solid #2D3748;
-            position: relative;
-            transition: border-color 0.3s;
-        }
-
-        .quarter-header:hover {
-            border-color: #00D9FF;
-        }
-
-        .quarter-header::before {
-            content: '';
-            position: absolute;
-            left: -57px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
-            background: #00D9FF;
-            border: 3px solid #0A0E12;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px #00D9FF;
-        }
-
-        .quarter-header h2 {
-            color: #00D9FF;
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2em;
-            margin-bottom: 8px;
-            letter-spacing: -0.01em;
-        }
-
-        .quarter-header .date {
-            color: #F5F5F5;
-            opacity: 0.5;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .items {
-            display: grid;
-            gap: 18px;
-        }
-
-        .item {
-            background: #0A0E12;
-            padding: 24px 28px;
-            border-radius: 8px;
-            border: 1px solid #2D3748;
-            border-left: 4px solid #00D9FF;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .item::before {
-            content: '';
-            position: absolute;
-            top: 0;
+            bottom: -1px;
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(to right, transparent, rgba(0, 217, 255, 0.3), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
+            background: linear-gradient(to right, transparent, var(--cyan), transparent);
+            opacity: 0.35;
+        }
+
+        .masthead-title {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+        }
+
+        header h1 {
+            font-family: 'STIX Two Text', Georgia, serif;
+            font-size: 1.7em;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--cyan);
+            text-shadow: 0 0 24px rgba(0, 217, 255, 0.45);
+        }
+
+        header .subtitle {
+            font-family: 'Departure Mono', 'Martian Mono', monospace;
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(245, 245, 245, 0.6);
+        }
+
+        .masthead-meta {
+            margin-left: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px 20px;
+            font-family: 'Martian Mono', monospace;
+            font-size: 0.72em;
+            color: rgba(245, 245, 245, 0.5);
+        }
+
+        .masthead-meta a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .masthead-meta a:hover {
+            color: var(--amber);
+        }
+
+        .masthead-meta a:focus-visible {
+            outline: 2px solid rgba(0, 217, 255, 0.7);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        /* legend rides in the masthead — statuses need no badge downstream */
+        .legend {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 22px;
+            padding-top: 10px;
+            font-family: 'Departure Mono', 'Martian Mono', monospace;
+            font-size: 0.66em;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(245, 245, 245, 0.45);
+        }
+
+        .legend .g { margin-right: 6px; }
+
+        /* ── ledger ─────────────────────────────────────────────── */
+        .quarters {
+            max-width: 860px;
+            margin: 0 auto;
+            padding-top: 26px;
+        }
+
+        .quarter {
+            margin-bottom: 30px;
+        }
+
+        .quarter-header {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 4px;
+        }
+
+        .quarter-header h2 {
+            font-family: 'STIX Two Text', Georgia, serif;
+            font-size: 1.22em;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--cyan);
+        }
+
+        .quarter-header .date {
+            margin-left: auto;
+            font-family: 'Martian Mono', monospace;
+            font-size: 0.68em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(245, 245, 245, 0.5);
+            white-space: nowrap;
+        }
+
+        .item {
+            display: flex;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(45, 55, 72, 0.55);
+            transition: background 0.2s;
+        }
+
+        .item:last-child {
+            border-bottom: none;
         }
 
         .item:hover {
-            transform: translateX(8px);
-            border-color: #00D9FF;
-            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.15);
+            background: rgba(0, 217, 255, 0.035);
         }
 
-        .item:hover::before {
-            opacity: 1;
-        }
-
-        .item h3 {
-            color: #F5F5F5;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
-
-        .item p {
-            color: #F5F5F5;
-            opacity: 0.7;
-            margin-bottom: 14px;
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 0.95em;
-            line-height: 1.65;
-        }
-
-        .status {
-            display: inline-block;
-            padding: 5px 14px;
-            border-radius: 4px;
+        .glyph {
+            font-family: 'Martian Mono', monospace;
             font-size: 0.8em;
-            font-weight: 500;
-            font-family: 'Roboto Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            line-height: 1.9;
+            flex: 0 0 14px;
         }
 
-        .status.done {
-            background: rgba(95, 211, 95, 0.15);
-            color: #5FD35F;
-            border: 1px solid rgba(95, 211, 95, 0.3);
+        .glyph.done { color: var(--green); }
+        .glyph.in-progress { color: var(--amber); }
+        .glyph.planned { color: rgba(0, 217, 255, 0.7); }
+
+        .item .body {
+            font-size: 0.87em;
         }
 
-        .status.in-progress {
-            background: rgba(255, 184, 0, 0.15);
-            color: #FFB800;
-            border: 1px solid rgba(255, 184, 0, 0.3);
+        .item .t {
+            font-weight: 600;
+            color: var(--ink);
         }
 
-        .status.planned {
-            background: rgba(0, 217, 255, 0.15);
-            color: #00D9FF;
-            border: 1px solid rgba(0, 217, 255, 0.3);
+        .item .d {
+            color: rgba(245, 245, 245, 0.62);
+        }
+
+        /* the one title-less narrative entry reads as prose */
+        .item .d.prose {
+            font-family: 'STIX Two Text', Georgia, serif;
+            font-size: 1.04em;
+            color: rgba(245, 245, 245, 0.7);
         }
 
         footer {
             text-align: center;
-            padding: 60px 20px 40px;
-            color: #F5F5F5;
-            opacity: 0.5;
-            font-size: 0.9em;
-            font-family: 'Inter', sans-serif;
-            border-top: 1px solid #2D3748;
-            margin-top: 60px;
+            padding: 28px 20px 0;
+            margin-top: 8px;
+            color: rgba(245, 245, 245, 0.45);
+            font-size: 0.78em;
+            border-top: 1px solid var(--line);
             position: relative;
         }
 
         footer::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: -1px;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #00D9FF, transparent);
-            opacity: 0.4;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--cyan), transparent);
+            opacity: 0.35;
         }
 
-        /* Loading state */
         .loading {
             text-align: center;
             padding: 100px 20px;
-            color: #00D9FF;
-            font-family: 'Roboto Mono', monospace;
+            color: var(--cyan);
+            font-family: 'Martian Mono', monospace;
         }
 
         .loading::after {
@@ -309,40 +281,20 @@
             60%, 100% { content: '...'; }
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .loading::after { animation: none; }
+        }
 
-            header p {
-                font-size: 1.1em;
-            }
-
-            .timeline {
-                padding-left: 35px;
-            }
-
-            .quarter-header::before {
-                left: -43px;
-            }
-
-            .version-info {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
+        @media (max-width: 600px) {
+            .masthead-meta {
+                margin-left: 0;
             }
         }
 
-        /* Selection Styling */
         ::selection {
             background-color: rgba(0, 217, 255, 0.3);
-            color: #F5F5F5;
-        }
-
-        ::-moz-selection {
-            background-color: rgba(0, 217, 255, 0.3);
-            color: #F5F5F5;
+            color: var(--ink);
         }
     </style>
 </head>
@@ -352,10 +304,10 @@
     </div>
 
     <script>
-        const statusLabels = {
-            done: '✓ Completed',
-            'in-progress': '⚡ In Progress',
-            planned: '📋 Planned'
+        const statusGlyphs = {
+            done: { g: '✓', label: 'shipped' },
+            'in-progress': { g: '◆', label: 'in progress' },
+            planned: { g: '○', label: 'planned' }
         };
 
         function renderRoadmap(data) {
@@ -363,47 +315,49 @@
 
             let html = `
                 <header>
-                    <h1>${data.title}</h1>
-                    <p>${data.subtitle}</p>
+                    <div class="masthead-title">
+                        <h1>${data.title}</h1>
+                        <span class="subtitle">${data.subtitle}</span>
+                    </div>
+                    <div class="masthead-meta">
+                        <span>updated ${data.last_updated}</span>
+                        <a href="${data.github_url}">GitHub ↗</a>
+                    </div>
+                    <div class="legend">
+                        <span><span class="g glyph done">✓</span>shipped</span>
+                        <span><span class="g glyph in-progress">◆</span>in progress</span>
+                        <span><span class="g glyph planned">○</span>planned</span>
+                    </div>
                 </header>
 
-                <div class="version-info">
-                    <div>
-                        <strong>Last Updated:</strong> ${data.last_updated}
-                    </div>
-                    <div>
-                        <a href="${data.github_url}">📜 View GitHub</a>
-                    </div>
-                </div>
-
-                <div class="timeline">
+                <div class="quarters">
             `;
 
             for (const quarter of data.quarters) {
                 html += `
-                    <div class="quarter">
+                    <section class="quarter">
                         <div class="quarter-header">
                             <h2>${quarter.name}</h2>
-                            ${quarter.date ? `<p class="date">${quarter.date}</p>` : ''}
+                            ${quarter.date ? `<span class="date">${quarter.date}</span>` : ''}
                         </div>
-                        <div class="items">
                 `;
 
                 for (const item of quarter.items) {
                     const statusClass = item.status.replace('_', '-');
+                    const glyph = statusGlyphs[statusClass] || { g: '·', label: item.status };
                     html += `
                         <div class="item">
-                            ${item.title ? `<h3>${item.title}</h3>` : ''}
-                            <p>${item.description}</p>
-                            <span class="status ${statusClass}">${statusLabels[statusClass] || item.status}</span>
+                            <span class="glyph ${statusClass}" title="${glyph.label}" aria-label="${glyph.label}">${glyph.g}</span>
+                            <div class="body">
+                                ${item.title
+                                    ? `<span class="t">${item.title}</span> <span class="d">— ${item.description}</span>`
+                                    : `<span class="d prose">${item.description}</span>`}
+                            </div>
                         </div>
                     `;
                 }
 
-                html += `
-                        </div>
-                    </div>
-                `;
+                html += `</section>`;
             }
 
             html += `
@@ -418,7 +372,6 @@
             app.innerHTML = html;
         }
 
-        // Fetch and render
         fetch('roadmap.yaml')
             .then(response => response.text())
             .then(yaml => {

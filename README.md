@@ -10,43 +10,39 @@ This project is a single-page HTML application that presents a timeline-style ro
 
 ## Features
 
-- **Timeline Visualization**: Clear quarterly breakdown of project milestones
-- **Status Indicators**: Color-coded badges for completed (green), in-progress (yellow), and planned (blue) items
-- **Modern Design**: Professional gradient header with purple/blue colors and card-based layout
-- **Interactive Elements**: Hover effects for enhanced user experience
-- **Responsive Layout**: Built with CSS Flexbox and Grid for optimal viewing on all devices
-- **Zero Dependencies**: Pure HTML/CSS with no JavaScript frameworks or build tools required
+- **Dense Ledger Layout**: Compact status-glyph rows instead of cards — the full timeline fits in roughly one desktop screen
+- **Status Indicators**: ✓ shipped (green), ◆ in progress (amber), ○ planned (cyan), with a legend in the masthead
+- **RELICA Design Language**: Matches relica.io — dark terminal palette (#0A0E12 / #00D9FF), STIX Two Text headings, Inter body, Martian Mono meta, Departure Mono micro-labels, scanline overlay
+- **Single Readable Column**: Quarters stack in one ~860px column for a calm chronological read
+- **YAML-Driven**: Roadmap content lives in `roadmap.yaml`; `index.html` renders it client-side via js-yaml
 
 ## Technology Stack
 
-- HTML5
-- CSS3 (Flexbox, Grid, gradients, animations)
+- HTML5 / CSS3 (single self-contained page)
+- js-yaml (CDN) for parsing `roadmap.yaml`
 - Git for version control
 
 ## Usage
 
-Simply open `index.html` in any modern web browser. No build process or server required.
+Serve the directory over HTTP (the YAML is fetched at runtime, so `file://` won't work):
+
+```
+python3 -m http.server 8000
+```
 
 ## Project Structure
 
 ```
 roadmap/
-├── index.html    # Main roadmap page
-└── README.md     # This file
+├── index.html                     # Roadmap page (markup, styles, renderer)
+├── roadmap.yaml                   # Roadmap content — edit this
+├── DepartureMono-Regular.woff2    # Self-hosted micro-label font
+└── README.md                      # This file
 ```
-
-## Current Roadmap Status
-
-The roadmap currently tracks development from Q4 2024 through Q3 2025, including:
-
-- **Q4 2024**: Platform Foundation, User Authentication System, Beta Launch
-- **Q1 2025**: Mobile App Release, Analytics Dashboard, API v2.0
-- **Q2 2025**: Team Collaboration Features, Advanced Search, Integrations Hub
-- **Q3 2025**: Enterprise Edition, Internationalization
 
 ## Maintenance
 
-To update the roadmap, simply edit the `index.html` file and modify the roadmap items as needed. The structure is straightforward and self-documenting.
+To update the roadmap, edit `roadmap.yaml`. Each quarter has a `name`, optional `date`, and `items` with optional `title`, `description`, and `status` (`done` / `in-progress` / `planned`).
 
 ## Note
 
