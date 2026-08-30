@@ -242,22 +242,65 @@
             color: rgba(245, 245, 245, 0.7);
         }
 
-        /* ── horizon section — softer, less committal ──────────── */
-        .quarter.horizon {
-            opacity: 0.55;
-            transition: opacity 0.3s;
+        /* ── horizon panel — distinct from the timeline ────────── */
+        .horizon-panel {
+            max-width: 860px;
+            margin: 26px auto 10px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 20px 24px 16px;
+            position: relative;
+            background: rgba(0, 217, 255, 0.02);
         }
 
-        .quarter.horizon:hover {
-            opacity: 0.8;
+        .horizon-panel::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), transparent 60%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
-        .quarter.horizon .quarter-header h2 {
-            color: rgba(0, 217, 255, 0.5);
+        .horizon-panel h2 {
+            font-family: 'Departure Mono', 'Martian Mono', monospace;
+            font-size: 0.72em;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--cyan);
+            margin-bottom: 14px;
         }
 
-        .quarter.horizon .glyph {
-            color: rgba(245, 245, 245, 0.25);
+        .horizon-panel .horizon-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 24px;
+        }
+
+        .horizon-panel .horizon-item {
+            font-size: 0.82em;
+        }
+
+        .horizon-panel .horizon-item .t {
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .horizon-panel .horizon-item .d {
+            color: rgba(245, 245, 245, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .horizon-panel .horizon-items {
+                grid-template-columns: 1fr;
+            }
+            .horizon-panel {
+                padding: 16px 18px 12px;
+            }
         }
 
         footer {
@@ -351,10 +394,28 @@
                 <div class="quarters">
             `;
 
-            for (const quarter of data.quarters) {
-                const isHorizon = quarter.type === 'horizon';
+            const horizon = data.quarters.find(q => q.type === 'horizon');
+            const timeline = data.quarters.filter(q => q.type !== 'horizon');
+
+            if (horizon) {
                 html += `
-                    <section class="quarter${isHorizon ? ' horizon' : ''}">
+                    <div class="horizon-panel">
+                        <h2>${horizon.name}</h2>
+                        <div class="horizon-items">
+                            ${horizon.items.map(item => `
+                                <div class="horizon-item">
+                                    <span class="t">${item.title}</span>
+                                    <span class="d">— ${item.description}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            for (const quarter of timeline) {
+                html += `
+                    <section class="quarter">
                         <div class="quarter-header">
                             <h2>${quarter.name}</h2>
                             ${quarter.date ? `<span class="date">${quarter.date}</span>` : ''}
