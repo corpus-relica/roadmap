@@ -1,6 +1,6 @@
 title: RELICA
 subtitle: Development Roadmap
-last_updated: Aug 29, 2026
+last_updated: Aug 30, 2026
 github_url: https://github.com/corpus-relica
 quarters:
   - name: Horizon
@@ -19,37 +19,45 @@ quarters:
         description: Full four-layer semantic stack enabling generative narrative over modeled reality — physical events, documented perspectives, interpretive frameworks, causal arcs.
         status: planned
 
-  - name: Q4 2026
-    date: October - December 2026
+  - name: Q2 2027
+    date: April - June 2027
     items:
-      - title: SightCone public beta
-        description: Consumer application validating the semantic life OS thesis. Subscription model. Flow layer. External integrations.
-        status: planned
       - title: Developer preview release
         description: Public platform access with documentation, examples, and community support channels
         status: planned
       - title: Python SDK
         description: Broadening platform accessibility beyond TypeScript
         status: planned
-      - title: Query optimization and batch operations
-        description: Performance improvements for large-scale ontological operations
-        status: planned
 
-  - name: Q2-Q3 2026
-    date: April - September 2026
+  - name: Q1 2027
+    date: January - March 2027
     items:
-      - title: Platform SDK ergonomics
-        description: Streamlined developer experience, cleaner APIs, improved error handling and type safety
+      - title: SightCone public beta
+        description: Consumer application validating the semantic life OS thesis. Subscription model. Flow layer. External integrations.
         status: planned
       - title: Scratch ontology environments
         description: Client-side development and experimentation without affecting production models
         status: planned
+
+  - name: Q4 2026
+    date: October - December 2026
+    items:
       - title: SightCone alpha
         description: First application fully expressing the occurrence-causal model. Personal semantic model of people, places, objects, events, and state changes over time.
         status: in-progress
       - title: Multi-hop graph retrieval and reasoning
         description: Traversal and inference across relationship chains enabling semantic queries that span multiple entity types and relationship depths
         status: in-progress
+      - title: Platform SDK ergonomics
+        description: Streamlined developer experience, cleaner APIs, improved error handling and type safety
+        status: in-progress
+      - title: Query optimization and batch operations
+        description: Performance improvements for large-scale ontological operations
+        status: in-progress
+
+  - name: Q2-Q3 2026
+    date: April - September 2026
+    items:
       - title: Occurrence-causal instance engine
         description: Live propagation of state transitions from occurrences. Runtime implementation of the metaspatiotemporal type framework — objects change state as a result of modeled events.
         status: done
