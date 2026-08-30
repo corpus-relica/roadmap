@@ -242,6 +242,24 @@
             color: rgba(245, 245, 245, 0.7);
         }
 
+        /* ── horizon section — softer, less committal ──────────── */
+        .quarter.horizon {
+            opacity: 0.55;
+            transition: opacity 0.3s;
+        }
+
+        .quarter.horizon:hover {
+            opacity: 0.8;
+        }
+
+        .quarter.horizon .quarter-header h2 {
+            color: rgba(0, 217, 255, 0.5);
+        }
+
+        .quarter.horizon .glyph {
+            color: rgba(245, 245, 245, 0.25);
+        }
+
         footer {
             text-align: center;
             padding: 28px 20px 0;
@@ -334,8 +352,9 @@
             `;
 
             for (const quarter of data.quarters) {
+                const isHorizon = quarter.type === 'horizon';
                 html += `
-                    <section class="quarter">
+                    <section class="quarter${isHorizon ? ' horizon' : ''}">
                         <div class="quarter-header">
                             <h2>${quarter.name}</h2>
                             ${quarter.date ? `<span class="date">${quarter.date}</span>` : ''}
